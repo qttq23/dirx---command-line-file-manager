@@ -6,10 +6,11 @@ platform: windows, .net core
 
 
 features:
+- use config file, git, branch, tag
+
 - show list of files/folders
 - move over items using keyboard key
 - select folder to view its child files/folders
-- use config file
 - ...
 
 date start: 21/2/2020
