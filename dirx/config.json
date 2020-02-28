@@ -1,5 +1,7 @@
 {
-    "startFolder": ".\\obj",
-    "visualFileName": false
+    "startFolder": ".",
+    "visualFileName": true,
+    "cursor": ">>>",
+    "maxClearCharacter": 255
 
 }
