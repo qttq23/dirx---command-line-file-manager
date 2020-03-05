@@ -15,48 +15,73 @@ namespace dirx
             string[] folders = Directory.GetDirectories(foldername);
             foreach (var file in files)
             {
-                list.Add(modifyFileName(file));
+                // list.Add(modifyFileName(file));
+                list.Add(getFullPath(file));
 
             }
             foreach (var folder in folders)
             {
-                list.Add(modifyFolderName(folder));
+                // list.Add(modifyFolderName(folder));
+                list.Add(getFullPath(folder));
             }
 
             return list.ToArray();
 
         }
-
-        private static string getFullPath(string filename){
+      
+        public static string getFullPath(string filename)
+        {
 
             return Path.GetFullPath(filename);
         }
 
-        private static string modifyFileName(string filename)
-        {
-            // get full path
-            filename = getFullPath(filename);
-            return filename;
-
-            if(Config.json["visualFileName"] == false)
-            {
-                return filename;
+        // this is hub function
+        public static string getLeastPath(string filename){
+            
+            if(isDir(filename)){
+                return modifyFolderName(filename);
             }
-            return filename.Substring(2);
+            
+            return modifyFileName(filename);
         }
-        
-        private static string modifyFolderName(string foldername)
-        {
-            // get full path
-            foldername = getFullPath(foldername);
-            return foldername;
 
-            if (Config.json["visualFileName"] == false)
+        public static string getPreviousPath(string filename){
+
+            if(isDir(filename)){
+                int index = filename.LastIndexOf(Path.DirectorySeparatorChar);
+                return filename.Substring(0, index);
+            }
+            return filename;
+        }
+        public static string modifyFileName(string filename)
+        {
+            if (Config.json["visualFileName"] == true)
             {
-                return foldername;
+                return Path.GetFileName(filename);
+            }
+            return filename;
+        }
+
+        public static string modifyFolderName(string foldername)
+        {
+            if (Config.json["visualFileName"] == true)
+            {
+                int index = foldername.LastIndexOf(Path.DirectorySeparatorChar);
+                return foldername.Substring(index);
+
             }
 
             return foldername;
+        }
+
+        public static bool isDir(string filename)
+        {
+            // get the file attributes for file or directory
+            FileAttributes attr = File.GetAttributes(filename);
+
+            if (attr.HasFlag(FileAttributes.Directory))
+                return true;
+            return false;
         }
 
     }
