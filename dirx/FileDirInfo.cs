@@ -28,7 +28,7 @@ namespace dirx
             return list.ToArray();
 
         }
-
+      
         public static string getFullPath(string filename)
         {
 
