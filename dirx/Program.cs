@@ -70,7 +70,7 @@ namespace dirx
                 {
                     gui.hoverPrevious();
                 }
-
+            
                 // get key
                 keyinfo = Console.ReadKey();
             }
@@ -78,7 +78,7 @@ namespace dirx
 
 
             // clean up every thing
-
+            gui.Dispose();
             // save file for later start
         }
 

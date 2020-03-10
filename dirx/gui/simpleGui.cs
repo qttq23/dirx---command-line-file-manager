@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace dirx.gui
 {
 
-    public class SimpleGui
+    public class SimpleGui: IDisposable
     {
         private List<string[]> data;
 
@@ -38,6 +38,10 @@ namespace dirx.gui
 
         }
 
+        public void Dispose(){
+            // move cursor to the end
+            Consolex.setXY(lastX, lastY);
+        }
         public bool isEmptyData()
         {
 
