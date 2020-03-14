@@ -7,6 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="System.Json" Version="4.7.0" />
+
+
+    <Content Include="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+
   </ItemGroup>
 
 </Project>
