@@ -1,0 +1,10 @@
+# error 1: navigate to C
+
+Unhandled Exception: System.IO.FileNotFoundException: Could not find file 'C:\.bash_history'.
+   at System.IO.FileSystem.GetAttributes(String fullPath)
+   at dirx.FileDirInfo.isDir(String filename) in C:\Users\khacv\Desktop\multi\commandLineFileManager\c#\cmdCommander\dirx\FileDirInfo.cs:line 80
+   at dirx.gui.SimpleGui.show() in C:\Users\khacv\Desktop\multi\commandLineFileManager\c#\cmdCommander\dirx\gui\simpleGui.cs:line 85
+   at dirx.Program.Main(String[] args) in C:\Users\khacv\Desktop\multi\commandLineFileManager\c#\cmdCommander\dirx\Program.cs:line 58
+
+# update 1: allow pass parameter for start-up folder from command line
+> dirx abcDirectory
