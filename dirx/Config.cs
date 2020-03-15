@@ -8,7 +8,7 @@ namespace dirx
     public class Config
     {
         public static JsonValue json;
-        public static string filename = "config.json";
+        public static string filename = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\dirx\\config.json";
 
         public static void Init(){
             Init(filename);
